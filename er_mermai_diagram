@@ -1,0 +1,95 @@
+erDiagram
+    stg_trial_events {
+        string organization_id
+        string activity_name
+        string activity_detail
+        timestamp timestamp
+    }
+    int_shifts_created {
+        string organization_id
+        int ACTIVITY_NAME
+        int activity_cnt
+        date event_date
+        time event_time_utc
+        int event_order_occurance
+    }
+    int_employees_invited {
+        string organization_id
+        int ACTIVITY_NAME
+        int activity_cnt
+        date event_date
+        time event_time_utc
+        int event_order_occurance
+    }
+    int_punch_ins {
+        string organization_id
+        int ACTIVITY_NAME
+        int activity_cnt
+        date event_date
+        time event_time_utc
+        int event_order_occurance
+    }
+    int_punch_in_approvals {
+        string organization_id
+        int ACTIVITY_NAME
+        int activity_cnt
+        date event_date
+        time event_time_utc
+        int event_order_occurance
+    }
+    int_advanced_features_viewed {
+        string organization_id
+        int ACTIVITY_NAME
+        int activity_cnt
+        date event_date
+        time event_time_utc
+        int event_order_occurance
+        int feature_occurance_order
+    }
+    mart_trial_activation {
+        STRING	organization_id
+        RECORD	shift_created
+        RECORD	employees_invited
+        RECORD	punched_in
+        RECORD	punch_approval
+        RECORD	advanced_features
+        DATE	shift_created-activation_date
+        INTEGER	shift_created-total_activity_YTD
+        DATE	employees_invited-activation_date
+        INTEGER	employees_invited-total_activity_YTD
+        DATE	punch_approval-activation_date
+        INTEGER	punch_approval-total_activity_YTD
+        DATE	punched_in-activation_date
+        INTEGER	punched_in-total_activity_YTD
+        STRING	advanced_features-second_activity_name
+        DATE	advanced_features-activation_date
+        INTEGER	advanced_features-num_uniq_feature_visit_YTD
+    }
+    mart_trial_goals {
+        STRING	organization_id
+        BOOLEAN	trial_activation_status
+        DATE	trial_activation_date
+        BOOLEAN	shift_created_goal_status
+        DATE	shift_date_completed
+        BOOLEAN	employee_invited_goal_status
+        DATE	employee_date_completed
+        BOOLEAN	punched_in_goal_status
+        DATE	punched_in_date_completed
+        BOOLEAN	punch_approval_goal_status
+        DATE	punch_approval_date_completed
+        BOOLEAN	advanced_features_goal_status
+        DATE	advanced_features_date_completed
+    }
+
+    
+    stg_trial_events ||--|| int_shifts_created : enriched
+    stg_trial_events ||--|| int_employees_invited : enriched
+    stg_trial_events ||--|| int_punch_ins : enriched
+    stg_trial_events ||--|| int_punch_in_approvals : enriched
+    stg_trial_events ||--|| int_advanced_features_viewed : enriched
+    int_shifts_created }|--|| mart_trial_goals : aggregated
+    int_employees_invited }|--|| mart_trial_goals : aggregated
+    int_punch_ins }|--|| mart_trial_goals : aggregated
+    int_punch_in_approvals }|--|| mart_trial_goals : aggregated
+    int_advanced_features_viewed }|--|| mart_trial_goals : aggregated
+    mart_trial_goals ||--|| mart_trial_activation : determines
