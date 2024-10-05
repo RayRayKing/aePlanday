@@ -1,5 +1,9 @@
 # aePlanday
 
+# Instructions
+
+For the first questions, the SQL models can be found the models folder. 
+For the second analysis questions, the python and analysis can be found in the ae_planday notebook.
 
 
 # Entity Relationship Model 
