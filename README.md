@@ -9,9 +9,10 @@ Entity Relationship Model
 
 For data modeling style, I used a setup similar to facts and dims model. The data was broken up with more relations to the usage. In this particular case, it was separate by metric and the further aggregate to the business need at the end. In the INT layer, it was mainly a process for enrichment of data in this case (frequency, row_number information). The final mart is the model . 
 
-The Raw data has a few concerns. 
- 1.There were duplicated data (with same exact time stamps) +  other fields. These transactions could be real, if a mass creation was done. For now, I've kept it within the analysis. 
- 2. Data exceeding march, the request was for Jan - Mar, there were data within april mixed in.
+**The Raw data has a few concerns:**
+
+1. There were duplicated data (with same exact time stamps) +  other fields. These transactions could be real, if a mass creation was done. For now, I've kept it within the analysis. 
+2. Data exceeding march, the request was for Jan - Mar, there were data within april mixed in.
 
 Docs for Model Short form 
 
