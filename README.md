@@ -106,3 +106,19 @@ This table provides a summary of trial goal completion and activation status for
 - **Sharding**: Useful for very large datasets to reduce query times and optimize organization. This is particularly beneficial when the data is not date-partitioned or hits partition limits.
 
 ---
+
+
+# Data quality and testing Suggestions:
+
+Data quality can be verified via SQL, Python or 3rd party tools.
+
+Standard Check tests 
+#### 1. all organization_ids are unique and not null
+#### 2. Accepted value checks on activity names, details, and date checks
+#### 3. On the more complex level, doing data diff. Ensuring that all changes are within expectations (Row level impact, field impact for down stream data) 
+#### 4. Model tests - run within staging environment to ensure code actually runs without breaking anything else. (Basically unit testing)
+#### 5. Summary data stats - Min, max, row counts, expectations and nulls verifications.
+
+
+
+
