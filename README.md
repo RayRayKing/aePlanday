@@ -99,11 +99,11 @@ This table provides a summary of trial goal completion and activation status for
 
 ### Clustering:
 - **Geo-local partitioning**: Assign numerical ID groups based on location, e.g., `Dim_Location` (country/region).
-- More advanced clustering could be done by grouping frequency bins (e.g., how often a location is accessed, or based on offers provided).
+- More advanced clustering could be done by grouping frequency bins (e.g., how often a location is accessed).
 
 ### Fact Tables:
 - **Partitioning**: All tables should be partitioned by event date.
-- **Clustering by location**: Depending on analyst needs, clustering by location (country/region) might provide better performance.
+- **Clustering**: clustering by activity, activity details can provide better performance.
   
 ### Indexing and Sharding:
 - **Indexing**: Consider turning off indexing for very large tables (100GB+), as indexes turn off at 10GB by default.
